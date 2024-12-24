@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Panorama Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <header>
+        <a href="../index.html">Home</a>
+        <a href="../pages/panorama.html">Panorama</a>
+        <a href="../pages/image.html">Image</a>
+        <a href="../pages/video.html">Video</a>
+    </header>
+    <div id="panorama"></div>
+    <div class="image-list">
+        <button onclick="loadPanorama('../panorama/panoramas/pc/Carolina.JPG', '../panorama/panoramas/mobile/Carolina_m.JPG')">Carolina Mall Alba Iulia</button>
+        <button onclick="loadPanorama('../panorama/panoramas/pc/Vulcan.JPG', '../panorama/panoramas/mobile/Vulcan_m.JPG')">Vulcan</button>
+    </div>
+
+    <script>
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        function loadPanorama(desktopImage, mobileImage) {
+            const image = isMobile() ? mobileImage : desktopImage;
+            pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "panorama": image,
+                "autoLoad": true
+            });
+        }
+
+        // Initialize with a default image
+        loadPanorama('../panorama/panoramas/pc/Carolina.JPG', '../panorama/panoramas/mobile/Carolina_m.JPG');
+    </script>
+</body>
+</html>
