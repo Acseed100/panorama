@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Panorama Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-size: large;
+        }
+        #panorama {
+            width: 100%;
+            height: 80vh;
+            margin-bottom: 20px;
+        }
+        .image-list {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px;
+        }
+        .image-list button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: large;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="panorama"></div>
+    <div class="image-list">
+        <button onclick="loadPanorama('images/Carolina.jpg')">Carolina Mall Alba Iulia</button>
+        <button onclick="loadPanorama('images/Vulcan.jpg')">Vulcan</button>
+    </div>
+
+    <script>
+        // Initialize with a default image
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "images/Carolina.jpg",
+            "autoLoad": true
+        });
+
+        // Function to load a selected panorama
+        function loadPanorama(image) {
+            pannellum.viewer('panorama', {
+                "type": "equirectangular",
+                "panorama": image,
+                "autoLoad": true
+            });
+        }
+    </script>
+</body>
+</html>
