@@ -20,5 +20,76 @@
         <img src="./pictures/dji.png" alt="DJI Drone" class="drone-image">
         <h1>Droninho</h1>
     </div>
+    <div class="media-player">
+        <audio controls>
+            <source src="song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button class="lyrics-btn" onclick="showLyrics()">Show Lyrics</button>
+    </div>
+    
+
+    <div class="lyrics-overlay" id="lyricsOverlay"></div>
+    <div class="lyrics-modal" id="lyricsModal">
+        <button class="lyrics-modal-close" onclick="closeLyrics()">Close</button>
+        <h2>Lyrics</h2>
+        <p>
+Yo, check it out, I got a beast in the sky,  
+Tiny but mighty, yeah, it’s catchin’ your eye.  
+Droninho’s the name, and it’s takin’ the game,  
+With moves so smooth, it’s puttin’ others to shame.  
+
+4K vision, it’s crystal clear,  
+Hover so steady, no wobble, no fear.  
+In the palm of my hand, it’s ready to go,  
+Mini 4 Pro, the star of the show.  
+
+(Chorus)  
+Droninho, yeah, it’s the king of the air,  
+Compact, but the power’s rare.  
+Flyin’ high, makin’ haters say “Whoa!”  
+Bow down to the Mini 4 Pro.  
+
+Obstacle sensors, it’s dodgin’ with flair,  
+In the toughest spots, it’s still chillin’ up there.  
+From sunrise shots to night-time glow,  
+Droninho’s magic, the world’s my show.  
+
+Quick transfer tech, no lag in the game,  
+Editing my shots, addin’ fire to the frame.  
+Battery’s solid, takin’ trips all day,  
+While the wannabe drones just fade away.  
+
+(Chorus)  
+Droninho, yeah, it’s the king of the air,  
+Compact, but the power’s rare.  
+Flyin’ high, makin’ haters say “Whoa!”  
+Bow down to the Mini 4 Pro.  
+
+(Bridge)  
+Small but a legend, you better take note,  
+Silent assassin, but it’s makin’ you vote.  
+For the skies it owns, it’s settin’ the tone,  
+Droninho’s the champ, yeah, it stands alone.  
+
+So here’s to the Mini, my pocket-sized pride,  
+With Droninho, man, I’m takin’ the ride.  
+From the clouds above to the scenes below,  
+DJI, salute, you already know.
+        </p>
+    </div>
+
+    <script>
+        // Function to show lyrics modal
+        function showLyrics() {
+            document.getElementById('lyricsModal').style.display = 'block';
+            document.getElementById('lyricsOverlay').style.display = 'block';
+        }
+
+        function closeLyrics() {
+            document.getElementById('lyricsModal').style.display = 'none';
+            document.getElementById('lyricsOverlay').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
