@@ -6,39 +6,31 @@
     <title>360 Panorama Viewer</title>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-    <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="./style/style.css">
+
 </head>
 <body>
-    <header>
-        <a href="../index.html">Home</a>
-        <a href="panorama.html">Panorama</a>
-        <a href="image.html">Image</a>
-        <a href="video.html">Video</a>
-    </header>
-
+<div id="content">
     <div id="panorama"></div>
 
     <div class="panorama-section">
-
         <div class="row">
             <h2 class="row-title">Vulcan</h2>
             <div class="panorama-buttons video-buttons">
-                <button onclick="loadPanorama('../panoramas/pc/Vulcan.JPG', '../panoramas/mobile/Vulcan_m.jpg')">Day</button>
+                <button onclick="loadPanorama('./panoramas/pc/Vulcan.JPG', './panoramas/mobile/Vulcan_m.jpg')">Day</button>
             </div>
         </div>
 
         <div class="row">
             <h2 class="row-title">Alba Iulia</h2>
             <div class="panorama-buttons video-buttons">
-                <button onclick="loadPanorama('../panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg')">Carolina Mall</button>
-                <button onclick="loadPanorama('../panoramas/pc/Cetate_night.JPG', '../panoramas/mobile/Cetate_night_m.jpg')">Cetate night</button>
-                <button onclick="loadPanorama('../panoramas/pc/Mercur.JPG', '../panoramas/mobile/Mercur_m.jpg')">Mercur</button>
+                <button onclick="loadPanorama('./panoramas/pc/Carolina.JPG', './panoramas/mobile/Carolina_m.jpg')">Carolina Mall</button>
+                <button onclick="loadPanorama('./panoramas/pc/Cetate_night.JPG', './panoramas/mobile/Cetate_night_m.jpg')">Cetate night</button>
+                <button onclick="loadPanorama('./panoramas/pc/Mercur.JPG', './panoramas/mobile/Mercur_m.jpg')">Mercur</button>
             </div>
         </div>
-
     </div>
-
+</div>
     <script>
         function isMobile() {
             return window.innerWidth <= 768;
@@ -53,8 +45,11 @@
             });
         }
 
+        // Ensure the function is exposed for dynamic loading
+        window.loadPanorama = loadPanorama;
+
         // Initialize with a default image
-        loadPanorama('../panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg');
+        loadPanorama('./panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg');
     </script>
 </body>
 </html>

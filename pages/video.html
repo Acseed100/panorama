@@ -14,29 +14,28 @@
         <a href="./image.html">Image</a>
         <a href="./video.html">Video</a>
     </header>
-    
 
-    <div class="video-section">
+    <!-- Content container with id="content" -->
+    <div id="content">
+        <div class="video-section">
 
-        <div class="row">
-            <h2 class="row-title">Vulcan</h2>
-            <div class="video-buttons">
-                <button onclick="openVideo('https://www.youtube.com/embed/3nHPsH9rt1w')">Day</button>
-                <button onclick="openVideo('https://www.youtube.com/embed/9Zz2dJDDZec')">Night</button>
+            <div class="row">
+                <h2 class="row-title">Vulcan</h2>
+                <div class="video-buttons">
+                    <button class="video-button" data-video-url="https://www.youtube.com/embed/3nHPsH9rt1w">Day</button>
+                    <button class="video-button" data-video-url="https://www.youtube.com/embed/9Zz2dJDDZec">Night</button>
+                </div>
             </div>
-        </div>
 
-
-
-        <div class="row">
-            <h2 class="row-title">Alba Iulia</h2>
-            <div class="video-buttons">
-                <button onclick="openVideo('https://www.youtube.com/embed/smMFFZ20aiI')">Parada militara 2024</button>
-                <button onclick="openVideo('https://www.youtube.com/embed/pHdIFXCtWJ4')">Night Flight</button>
+            <div class="row">
+                <h2 class="row-title">Alba Iulia</h2>
+                <div class="video-buttons">
+                    <button class="video-button" data-video-url="https://www.youtube.com/embed/smMFFZ20aiI">Parada militara 2024</button>
+                    <button class="video-button" data-video-url="https://www.youtube.com/embed/pHdIFXCtWJ4">Night Flight</button>
+                </div>
             </div>
-        </div>
 
-        
+        </div>
     </div>
 
     <!-- Video Modal -->
@@ -48,29 +47,41 @@
     </div>
 
     <script>
-        function openVideo(url) {
-            const modal = document.getElementById('video-modal');
-            const videoFrame = document.getElementById('video-frame');
-
-            videoFrame.src = url;
-            modal.style.display = 'block';
-        }
-
-        function closeVideo() {
-            const modal = document.getElementById('video-modal');
-            const videoFrame = document.getElementById('video-frame');
-
-            videoFrame.src = ''; // Clear the video source
-            modal.style.display = 'none';
-        }
-
-        // Close modal if clicking outside of the modal content
-        window.onclick = function(event) {
-            const modal = document.getElementById('video-modal');
-            if (event.target === modal) {
-                closeVideo();
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to open the video modal
+            function openVideo(url) {
+                const modal = document.getElementById('video-modal');
+                const videoFrame = document.getElementById('video-frame');
+                videoFrame.src = url;
+                modal.style.display = 'block';
             }
-        }
+
+            // Function to close the video modal
+            function closeVideo() {
+                const modal = document.getElementById('video-modal');
+                const videoFrame = document.getElementById('video-frame');
+                videoFrame.src = ''; // Clear the video source
+                modal.style.display = 'none';
+            }
+
+            // Close modal if clicking outside of the modal content
+            window.onclick = function(event) {
+                const modal = document.getElementById('video-modal');
+                if (event.target === modal) {
+                    closeVideo();
+                }
+            }
+
+            // Get all video buttons and attach event listeners
+            const buttons = document.querySelectorAll('.video-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const videoUrl = button.getAttribute('data-video-url');
+                    openVideo(videoUrl);
+                });
+            });
+        });
     </script>
 </body>
 </html>
