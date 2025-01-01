@@ -112,8 +112,9 @@
 
     <script>
         // Function to load content pages without loading new HTML
+        // Function to load content pages without loading new HTML
         function loadPage(page) {
-            console.log("Loading page:", page); // Check if this is triggered
+            console.log("Loading page:", page);
             // Hide all pages first
             const pages = document.querySelectorAll('.container');
             pages.forEach(p => p.style.display = 'none');
@@ -121,9 +122,22 @@
             // Show the selected page
             document.getElementById(page).style.display = 'block';
 
-            // Update the URL without reloading the page
-            history.pushState(null, '', page + '.html');
+            // Update the URL with hash instead of .html
+            history.pushState(null, '', '#' + page);
         }
+
+        // Handle the initial page load based on hash
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the hash from URL or default to 'home'
+            const initialPage = window.location.hash.slice(1) || 'home';
+            loadPage(initialPage);
+
+            // Listen for hash changes
+            window.addEventListener('hashchange', function() {
+                const page = window.location.hash.slice(1) || 'home';
+                loadPage(page);
+            });
+        });
 
 
         // Function to show lyrics modal
