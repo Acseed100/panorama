@@ -8,78 +8,115 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- Header stays persistent -->
     <header>
-        <a href="./index.html">Home</a>
-        <a href="./pages/panorama.html">Panorama</a>
-        <a href="./pages/image.html">Image</a>
-        <a href="./pages/video.html">Video</a>
+        <a href="#" onclick="loadPage('./index.html')">Home</a>
+        <a href="#" onclick="loadPage('./pages/panorama.html')">Panorama</a>
+        <a href="#" onclick="loadPage('./pages/image.html')">Image</a>
+        <a href="#" onclick="loadPage('./pages/video.html')">Video</a>
     </header>
-    
 
-    <div class="container">
-        <img src="./pictures/dji.png" alt="DJI Drone" class="drone-image">
-        <h1>Droninho</h1>
-    </div>
+    <!-- Radio player stays persistent -->
     <div class="media-player">
-        <audio controls>
+        <audio controls autoplay>
             <source src="song.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <button class="lyrics-btn" onclick="showLyrics()">Show Lyrics</button>
     </div>
-    
 
+    <!-- Content container -->
+    <div id="content">
+        <!-- Default content for Home -->
+        <div class="container">
+            <img src="./pictures/dji.png" alt="DJI Drone" class="drone-image">
+            <h1>Droninho</h1>
+        </div>
+    </div>
+
+    <!-- Lyrics Modal -->
     <div class="lyrics-overlay" id="lyricsOverlay"></div>
     <div class="lyrics-modal" id="lyricsModal">
         <button class="lyrics-modal-close" onclick="closeLyrics()">Close</button>
         <h2>Lyrics</h2>
         <p>
-Yo, check it out, I got a beast in the sky,  
-Tiny but mighty, yeah, it’s catchin’ your eye.  
-Droninho’s the name, and it’s takin’ the game,  
-With moves so smooth, it’s puttin’ others to shame.  
+            (Intro)
+Yo, we out here soaring, higher than the rim,
+DJI Mini 4 Pro, let the flight begin.
+From the court to the skies, yeah, you know the vibe,
+Droninio got moves like an NBA highlight!
 
-4K vision, it’s crystal clear,  
-Hover so steady, no wobble, no fear.  
-In the palm of my hand, it’s ready to go,  
-Mini 4 Pro, the star of the show.  
+(Verse 1)
+I’m dribblin' through the air, smooth like Kyrie,
+360 views, can’t nobody out-fly me.
+Steph with the shot, yeah, I’m always in range,
+Capturin’ the world like LeBron makin' change.
 
-(Chorus)  
-Droninho, yeah, it’s the king of the air,  
-Compact, but the power’s rare.  
-Flyin’ high, makin’ haters say “Whoa!”  
-Bow down to the Mini 4 Pro.  
+Mini 4 Pro, it’s a dunk, no miss,
+Hover like a Giannis block—wingspan crisp.
+Fast as Ja Morant when I’m takin’ that flight,
+LED glow like the Garden at night.
 
-Obstacle sensors, it’s dodgin’ with flair,  
-In the toughest spots, it’s still chillin’ up there.  
-From sunrise shots to night-time glow,  
-Droninho’s magic, the world’s my show.  
+(Chorus)
+Fly high, touch the sky, like I’m MJ in his prime,
+Every shot, every clip, got that highlight shine.
+Droninio’s got the angles, never missin' a beat,
+NBA vibes while I glide through the streets.
 
-Quick transfer tech, no lag in the game,  
-Editing my shots, addin’ fire to the frame.  
-Battery’s solid, takin’ trips all day,  
-While the wannabe drones just fade away.  
+(Verse 2)
+Zion in the paint, yeah, the power’s insane,
+Droninio got finesse like Dame in the lane.
+Tracking smooth like Luka, no play outta sync,
+4K vision, got the clarity to think.
 
-(Chorus)  
-Droninho, yeah, it’s the king of the air,  
-Compact, but the power’s rare.  
-Flyin’ high, makin’ haters say “Whoa!”  
-Bow down to the Mini 4 Pro.  
+Defense like Kawhi, steady in the air,
+Durant with the reach, yeah, the game ain’t fair.
+I’m slammin’ on the skyline, above the backboard,
+Mini 4 Pro takin’ flight, always on the scoreboard.
 
-(Bridge)  
-Small but a legend, you better take note,  
-Silent assassin, but it’s makin’ you vote.  
-For the skies it owns, it’s settin’ the tone,  
-Droninho’s the champ, yeah, it stands alone.  
+(Bridge)
+From the baseline to the heavens, I’m never out of bounds,
+Like Curry hittin' triples, I’m steady with the rounds.
+Droninio’s got the skill set, always on the rise,
+NBA dreams in the skies where I fly.
 
-So here’s to the Mini, my pocket-sized pride,  
-With Droninho, man, I’m takin’ the ride.  
-From the clouds above to the scenes below,  
-DJI, salute, you already know.
+(Chorus)
+Fly high, touch the sky, like I’m MJ in his prime,
+Every shot, every clip, got that highlight shine.
+Droninio’s got the angles, never missin' a beat,
+NBA vibes while I glide through the streets.
+
+(Outro)
+So here’s to my Mini, my superstar drone,
+MVP of the skies, yeah, it’s in a league of its own.
+From the court to the clouds, always keepin' it tight,
+Droninio takin’ over, let’s call it a night.
         </p>
     </div>
 
     <script>
+        // Function to dynamically load content
+        function loadPage(page) {
+            fetch(page)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Page not found');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Extract the main content only
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const newContent = doc.querySelector('#content').innerHTML;
+                    document.getElementById('content').innerHTML = newContent;
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                    document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
+                });
+        }
+
         // Function to show lyrics modal
         function showLyrics() {
             document.getElementById('lyricsModal').style.display = 'block';
