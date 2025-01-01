@@ -176,12 +176,8 @@ Droninho takin’ over, let’s call it a night.
             // Show the selected page
             document.getElementById(page).style.display = 'block';
 
-            // Update URL to show only the hash
-            if (window.location.pathname !== '/') {
-                window.history.replaceState(null, '', '/#' + page);
-            } else {
-                window.history.replaceState(null, '', '#' + page);
-            }
+            // Always update the URL with index.html#page
+            window.history.replaceState(null, '', 'index.html#' + page);
         }
 
         // Handle the initial page load based on hash
@@ -196,6 +192,7 @@ Droninho takin’ over, let’s call it a night.
                 loadPage(page);
             });
         });
+
 
         // Function to show lyrics modal
         function showLyrics() {
