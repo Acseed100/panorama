@@ -6,7 +6,7 @@
     <title>360 Panorama Viewer</title>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
-    <link rel="stylesheet" href="./panorama/style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
 
 
 </head>
@@ -25,9 +25,9 @@
         <div class="row">
             <h2 class="row-title">Alba Iulia</h2>
             <div class="panorama-buttons video-buttons">
-                <button onclick="loadPanorama('./panoramas/pc/Carolina.JPG', './panoramas/mobile/Carolina_m.jpg')">Carolina Mall</button>
-                <button onclick="loadPanorama('./panoramas/pc/Cetate_night.JPG', './panoramas/mobile/Cetate_night_m.jpg')">Cetate night</button>
-                <button onclick="loadPanorama('./panoramas/pc/Mercur.JPG', './panoramas/mobile/Mercur_m.jpg')">Mercur</button>
+                <button onclick="loadPanorama('../panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg')">Carolina Mall</button>
+                <button onclick="loadPanorama('../panoramas/pc/Cetate_night.JPG', '../panoramas/mobile/Cetate_night_m.jpg')">Cetate night</button>
+                <button onclick="loadPanorama('../panoramas/pc/Mercur.JPG', '../panoramas/mobile/Mercur_m.jpg')">Mercur</button>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
         window.loadPanorama = loadPanorama;
 
         // Initialize with a default image
-        loadPanorama('./panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg');
+        loadPanorama('../panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg');
     </script>
 </body>
 </html>
