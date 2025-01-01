@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Droninho</title>
     <link rel="stylesheet" href="./style/style.css">
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css">
+    <script type="text/javascript" src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
 </head>
 <body>
     <!-- Header stays persistent -->
     <header>
-        <a href="#" onclick="loadPage('./index.html')">Home</a>
-        <a href="#" onclick="loadPage('./pages/panorama.html')">Panorama</a>
-        <a href="#" onclick="loadPage('./pages/image.html')">Image</a>
-        <a href="#" onclick="loadPage('./pages/video.html')">Video</a>
+        <a href="#" onclick="loadPage('home')">Home</a>
+        <a href="#" onclick="loadPage('panorama')">Panorama</a>
+        <a href="#" onclick="loadPage('image')">Image</a>
+        <a href="#" onclick="loadPage('video')">Video</a>
     </header>
 
     <!-- Radio player stays persistent -->
@@ -29,9 +30,72 @@
     <!-- Content container -->
     <div id="content">
         <!-- Default content for Home -->
-        <div class="container">
+        <div class="container" id="home">
             <img src="./pictures/dji.png" alt="DJI Drone" class="drone-image">
             <h1>Droninho</h1>
+        </div>
+
+        <!-- Panorama Content -->
+        <div class="container" id="panorama" style="display:none">
+            <div class="panorama-wrapper">
+                <!-- Panorama viewer -->
+                <div class="panorama-container">
+                    <div id="panoramaViewer"></div>
+                </div>
+                
+                <!-- Buttons section -->
+                <div class="panorama-section">
+                    <div class="row">
+                        <h2 class="row-title">Vulcan</h2>
+                        <div class="panorama-buttons video-buttons">
+                            <button onclick="loadPanorama('./panoramas/pc/Vulcan.JPG', './panoramas/mobile/Vulcan_m.jpg')">Day</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <h2 class="row-title">Alba Iulia</h2>
+                        <div class="panorama-buttons video-buttons">
+                            <button onclick="loadPanorama('../panoramas/pc/Carolina.JPG', '../panoramas/mobile/Carolina_m.jpg')">Carolina Mall</button>
+                            <button onclick="loadPanorama('../panoramas/pc/Cetate_night.JPG', '../panoramas/mobile/Cetate_night_m.jpg')">Cetate night</button>
+                            <button onclick="loadPanorama('../panoramas/pc/Mercur.JPG', '../panoramas/mobile/Mercur_m.jpg')">Mercur</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Content -->
+        <div class="container" id="image" style="display:none">
+            <h2>Image Content Placeholder</h2>
+        </div>
+
+        <!-- Video Content -->
+        <div class="container" id="video" style="display:none">
+            <div class="video-section">
+                <div class="row">
+                    <h2 class="row-title">Vulcan</h2>
+                    <div class="video-buttons">
+                        <button class="video-button" data-video-url="https://www.youtube.com/embed/3nHPsH9rt1w">Day</button>
+                        <button class="video-button" data-video-url="https://www.youtube.com/embed/9Zz2dJDDZec">Night</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h2 class="row-title">Alba Iulia</h2>
+                    <div class="video-buttons">
+                        <button class="video-button" data-video-url="https://www.youtube.com/embed/smMFFZ20aiI">Parada militara 2024</button>
+                        <button class="video-button" data-video-url="https://www.youtube.com/embed/pHdIFXCtWJ4">Night Flight</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Modal -->
+            <div id="video-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeVideo()">&times;</span>
+                    <iframe id="video-frame" width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -41,102 +105,25 @@
         <button class="lyrics-modal-close" onclick="closeLyrics()">Close</button>
         <h2>Lyrics</h2>
         <p>
-            (Intro)
-Yo, we out here soaring, higher than the rim,
-DJI Mini 4 Pro, let the flight begin.
-From the court to the skies, yeah, you know the vibe,
-Droninio got moves like an NBA highlight!
-
-(Verse 1)
-I’m dribblin' through the air, smooth like Kyrie,
-360 views, can’t nobody out-fly me.
-Steph with the shot, yeah, I’m always in range,
-Capturin’ the world like LeBron makin' change.
-
-Mini 4 Pro, it’s a dunk, no miss,
-Hover like a Giannis block—wingspan crisp.
-Fast as Ja Morant when I’m takin’ that flight,
-LED glow like the Garden at night.
-
-(Chorus)
-Fly high, touch the sky, like I’m MJ in his prime,
-Every shot, every clip, got that highlight shine.
-Droninio’s got the angles, never missin' a beat,
-NBA vibes while I glide through the streets.
-
-(Verse 2)
-Zion in the paint, yeah, the power’s insane,
-Droninio got finesse like Dame in the lane.
-Tracking smooth like Luka, no play outta sync,
-4K vision, got the clarity to think.
-
-Defense like Kawhi, steady in the air,
-Durant with the reach, yeah, the game ain’t fair.
-I’m slammin’ on the skyline, above the backboard,
-Mini 4 Pro takin’ flight, always on the scoreboard.
-
-(Bridge)
-From the baseline to the heavens, I’m never out of bounds,
-Like Curry hittin' triples, I’m steady with the rounds.
-Droninio’s got the skill set, always on the rise,
-NBA dreams in the skies where I fly.
-
-(Chorus)
-Fly high, touch the sky, like I’m MJ in his prime,
-Every shot, every clip, got that highlight shine.
-Droninio’s got the angles, never missin' a beat,
-NBA vibes while I glide through the streets.
-
-(Outro)
-So here’s to my Mini, my superstar drone,
-MVP of the skies, yeah, it’s in a league of its own.
-From the court to the clouds, always keepin' it tight,
-Droninio takin’ over, let’s call it a night.
+            (Intro) Yo, we out here soaring, higher than the rim, DJI Mini 4 Pro, let the flight begin. ...
+            <br> (Outro) So here’s to my Mini, my superstar drone, MVP of the skies, yeah, it’s in a league of its own.
         </p>
     </div>
 
     <script>
-        // Function to dynamically load content
+        // Function to load content pages without loading new HTML
         function loadPage(page) {
-            fetch(page)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Page not found');
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(data, 'text/html');
+            console.log("Loading page:", page); // Check if this is triggered
+            // Hide all pages first
+            const pages = document.querySelectorAll('.container');
+            pages.forEach(p => p.style.display = 'none');
+            
+            // Show the selected page
+            document.getElementById(page).style.display = 'block';
 
-                    // Replace the <head> section
-                    document.head.innerHTML = doc.querySelector('head').innerHTML;
-
-                    // Replace only the #content section
-                    const newContent = doc.querySelector('#content').innerHTML;
-                    document.getElementById('content').innerHTML = newContent;
-
-                    // Update the URL without reloading the page
-                    history.pushState(null, '', page);
-
-                    // Reapply scripts if needed
-                    const scripts = doc.querySelectorAll('script');
-                    scripts.forEach(script => {
-                        const newScript = document.createElement('script');
-                        if (script.src) {
-                            newScript.src = script.src;
-                        } else {
-                            newScript.textContent = script.textContent;
-                        }
-                        document.body.appendChild(newScript);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading page:', error);
-                    document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
-                });
+            // Update the URL without reloading the page
+            history.pushState(null, '', page + '.html');
         }
-
 
 
         // Function to show lyrics modal
@@ -149,6 +136,54 @@ Droninio takin’ over, let’s call it a night.
             document.getElementById('lyricsModal').style.display = 'none';
             document.getElementById('lyricsOverlay').style.display = 'none';
         }
+
+        // Panorama loading function
+        function isMobile() {
+            return window.innerWidth <= 768; // Check if the device is mobile
+        }
+
+        function loadPanorama(desktopImage, mobileImage) {
+            console.log('Load panorama triggered with:', desktopImage, mobileImage);
+            const image = isMobile() ? mobileImage : desktopImage;
+
+            const viewer = pannellum.viewer('panoramaViewer', {
+                "type": "equirectangular",
+                "panorama": image,
+                "autoLoad": true
+            });
+        }
+
+        // Video modal functions
+        document.addEventListener('DOMContentLoaded', function() {
+            function openVideo(url) {
+                const modal = document.getElementById('video-modal');
+                const videoFrame = document.getElementById('video-frame');
+                videoFrame.src = url;
+                modal.style.display = 'block';
+            }
+
+            function closeVideo() {
+                const modal = document.getElementById('video-modal');
+                const videoFrame = document.getElementById('video-frame');
+                videoFrame.src = ''; // Clear the video source
+                modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                const modal = document.getElementById('video-modal');
+                if (event.target === modal) {
+                    closeVideo();
+                }
+            }
+
+            const buttons = document.querySelectorAll('.video-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const videoUrl = button.getAttribute('data-video-url');
+                    openVideo(videoUrl);
+                });
+            });
+        });
     </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@ body {
     color: white;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: center;
@@ -24,172 +26,44 @@ header a:hover {
     color: #ddd;
 }
 
+/* Container */
 .container {
     text-align: center;
     margin: 20px;
 }
 
+/* Main Panorama Section */
+
+
+
+/* Replace your existing panorama-related CSS with this: */
 #panorama {
-    width: 95%;
-    height: 70vh;
-    margin: 20px auto;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid #333;
-}
-
-.drone-image {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
     margin-top: 20px;
-}
-
-h1 {
-    font-size: 28px;
-    margin: 10px 0;
-}
-
-.image-list {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px;
-}
-
-.image-list button {
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: large;
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 5px;
-}
-
-.image-list button:hover {
-    background-color: #444;
-}
-
-@media (max-width: 768px) {
-    #panorama {
-        height: 50vh;
-    }
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: white;
-}
-
-.video-section {
-    margin: 20px;
-    padding: 20px;
-}
-
-.row {
-    margin-bottom: 30px;
-}
-
-.row-title {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    color: white;
-}
-
-.video-buttons {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent buttons from wrapping */
-    padding: 10px;
-    background-color: #222; /* Optional for better visibility */
-    border-radius: 8px; /* Optional rounded edges */
-}
-
-.video-buttons button {
-    flex-shrink: 0;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: large;
-    background-color: #333;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.video-buttons button:hover {
-    background-color: #444;
-}
-
-#video-container {
-    margin: 20px auto;
-    text-align: center;
-    max-width: 900px; /* Set a max-width for the video player */
-    border: 2px solid #555;
-    border-radius: 10px;
-}
-
-
-
-/* Modal Styles */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
-}
-
-.modal-content {
-    position: relative;
-    margin: 10% auto;
-    padding: 0;
-    width: 80%;
-    max-width: 800px;
-    background-color: #222;
     border-radius: 10px;
     overflow: hidden;
-    border: 2px solid #444;
 }
 
-.modal-content iframe {
+.panorama-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panorama-container {
     width: 100%;
-    height: 450px;
-    border: none;
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+#panoramaViewer {
+    width: 100%;
+    height: 500px;
+    border: 2px solid white;
 }
-
-.close:hover {
-    color: #ddd;
-}
-
-
-
 
 .panorama-section {
     margin: 20px;
-}
-
-.row {
-    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 3%;
 }
 
 .row-title {
@@ -218,50 +92,155 @@ body {
     background-color: #0056b3;
 }
 
-#panorama {
-    width: 100%;
-    height: 500px;
+
+
+
+
+
+
+
+
+
+/* Drone Image */
+.drone-image {
+    max-width: 100%;
+    height: auto;
     margin-top: 20px;
-    border: 1px solid #ccc;
 }
 
+/* Image List Section */
+.image-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.image-list button {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: large;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.image-list button:hover {
+    background-color: #444;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    width: 80%;
+    max-width: 800px;
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #444;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #ddd;
+}
+
+/* Video Section */
+.video-section {
+    margin: 20px;
+    padding: 20px;
+}
+
+.row-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: white;
+}
+
+.video-buttons {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+.video-buttons button {
+    flex-shrink: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: large;
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.video-buttons button:hover {
+    background-color: #444;
+}
+
+#video-container {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 900px;
+    border: 2px solid #555;
+    border-radius: 10px;
+}
+
+/* Media Player */
 .media-player {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #000000;
+    background-color: #000;
     color: #fff;
     padding: 10px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
     text-align: center;
 }
-audio {
-    width: 100%;
-    max-width: 500px;
-}
 
 audio {
     width: 100%;
     max-width: 500px;
 }
-/* Ensure the player doesn't obscure the modal */
-.media-player {
-    display: flex;
-    align-items: center; /* Centers items vertically */
-    justify-content: center; /* Centers items horizontally */
-    gap: 10px; /* Adds space between the audio player and the button */
-    background-color: #000000;
-    color: #fff;
-    padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 
-/* Button for lyrics */
+/* Lyrics Button */
 .lyrics-btn {
-    background-color: #000000;
+    background-color: #000;
     color: #fff;
     border: none;
     padding: 10px 15px;
@@ -269,39 +248,42 @@ audio {
     cursor: pointer;
     border-radius: 5px;
 }
+
 .lyrics-btn:hover {
     background-color: #272625;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Style for the lyrics modal */
+/* Lyrics Modal */
 .lyrics-modal {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000;
+    color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
     max-width: 80%;
     max-height: 80%;
     overflow-y: auto;
-    z-index: 1000; /* Above everything else */
+    z-index: 1000;
 }
+
 .lyrics-modal h2 {
     margin-top: 0;
 }
+
 .lyrics-modal p {
     white-space: pre-wrap;
 }
 
-/* Close button for modal */
+/* Lyrics Modal Close Button */
 .lyrics-modal-close {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -309,11 +291,12 @@ audio {
     float: right;
     border-radius: 5px;
 }
+
 .lyrics-modal-close:hover {
     background-color: #3a3938;
 }
 
-/* Background overlay for the modal */
+/* Lyrics Modal Overlay */
 .lyrics-overlay {
     display: none;
     position: fixed;
@@ -322,5 +305,22 @@ audio {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999; /* Below modal but above everything else */
+    z-index: 999;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #panorama {
+        height: 50vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
