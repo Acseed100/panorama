@@ -34,9 +34,6 @@ header a:hover {
 
 /* Main Panorama Section */
 
-
-
-/* Replace your existing panorama-related CSS with this: */
 #panorama {
     width: 100%;
     margin-top: 20px;
@@ -92,10 +89,25 @@ header a:hover {
 }
 
 
+#github-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
 
+#github-icon img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
 
-
-
+#github-icon img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
 
 
 
